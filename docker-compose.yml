@@ -5,5 +5,8 @@ services:
   ethminer:
     container_name: ethminer
     image: ethminer:0.18.0
-    build: .
+    build: 
+      context: .
+      args:
+        binary_file: ethminer-0.18.0-cuda-8-linux-x86_64.tar.gz
     restart: unless-stopped

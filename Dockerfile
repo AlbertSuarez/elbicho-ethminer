@@ -1,6 +1,8 @@
 FROM nvidia/cuda:8.0-devel-ubuntu16.04
 WORKDIR /ethminer
 
+ARG binary_file
+
 RUN apt-get update \
     && apt-get -y install software-properties-common \
     && add-apt-repository -y ppa:ethereum/ethereum -y \
@@ -26,6 +28,7 @@ ENV GPU_USE_SYNC_OBJECTS=1
 ENV GPU_MAX_ALLOC_PERCENT=100
 ENV GPU_SINGLE_ALLOC_PERCENT=100
 
-RUN tar xvf ethminer-0.18.0-cuda-8-linux-x86_64.tar.gz
+ADD ./${binary_file} /ethminer/${binary_file}
+RUN tar xvf ${binary_file}
 
 CMD /ethminer/bin/ethminer --help
