@@ -29,4 +29,4 @@ ENV GPU_SINGLE_ALLOC_PERCENT=100
 
 RUN tar xvf ethminer-0.18.0-cuda-8-linux-x86_64.tar.gz
 
-ENTRYPOINT ["/ethminer/bin/ethminer", "-U"]
+CMD /ethminer/bin/ethminer --help
