@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  
+  ethminer:
+    container_name: ethminer
+    image: ethminer:0.18.0
+    build: .
+    restart: unless-stopped
