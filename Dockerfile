@@ -28,7 +28,7 @@ ENV GPU_USE_SYNC_OBJECTS=1
 ENV GPU_MAX_ALLOC_PERCENT=100
 ENV GPU_SINGLE_ALLOC_PERCENT=100
 
-ADD ./${binary_file} /ethminer/${binary_file}
+COPY ./${binary_file} /ethminer/${binary_file}
 RUN tar xvf ${binary_file}
 
 CMD /ethminer/bin/ethminer --help
