@@ -2,6 +2,7 @@ FROM nvidia/cuda:8.0-devel-ubuntu16.04
 WORKDIR /ethminer
 
 ARG binary_file
+ARG pool_url
 
 RUN apt-get update \
     && apt-get -y install software-properties-common \
@@ -31,4 +32,4 @@ ENV GPU_SINGLE_ALLOC_PERCENT=100
 COPY ./${binary_file} /ethminer/${binary_file}
 RUN tar xvf ${binary_file}
 
-CMD /ethminer/bin/ethminer -U -P ${pool_url}
+CMD /ethminer/bin/ethminer --cuda --pool ${pool_url}
