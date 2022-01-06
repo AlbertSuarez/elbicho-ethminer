@@ -31,4 +31,4 @@ ENV GPU_SINGLE_ALLOC_PERCENT=100
 COPY ./${binary_file} /ethminer/${binary_file}
 RUN tar xvf ${binary_file}
 
-CMD /ethminer/bin/ethminer --cuda --pool ${pool_url}
+CMD /ethminer/bin/ethminer -U -P ${pool_url}
